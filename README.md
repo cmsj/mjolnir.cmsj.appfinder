@@ -1,22 +1,22 @@
 ### Install
 
 ~~~bash
-$ git clone https://github.com/cmsj/hydra-allfinder.git ~/.hydra/ext/allfinder
+$ git clone https://github.com/cmsj/hydra-appfinder.git ~/.hydra/ext/appfinder
 ~~~
 
 ### Require
 
 ~~~lua
-require "ext.allfinder.init"
+require "ext.appfinder.init"
 ~~~
 
 ### Core Functions
 
 ~~~lua
-function ext.allfinder.app\_from\_name(name)  -- Returns the Hydra application object for an application with the supplied name (e.g. "Safari")
-function ext.allfinder.app\_from\_window\_title(title) -- Returns the Hydra application object for a window with the supplied title (e.g. "Activity Monitor (All Processes)")
-function ext.allfinder.app\_from\_window\_title\_pattern(pattern) -- Returns the Hydra application object for a window title matching the supplied Lua pattern (e.g. "Inbox %(%d+ messages.\*")
-function ext.allfinder.window\_from\_window\_title(title) -- Returns the Hydra window object for a window with the supplied title (e.g. "Activity Monitor (All Processes)")
+function ext.appfinder.app\_from\_name(name)  -- Returns the Hydra application object for an application with the supplied name (e.g. "Safari")
+function ext.appfinder.app\_from\_window\_title(title) -- Returns the Hydra application object for a window with the supplied title (e.g. "Activity Monitor (All Processes)")
+function ext.appfinder.app\_from\_window\_title\_pattern(pattern) -- Returns the Hydra application object for a window title matching the supplied Lua pattern (e.g. "Inbox %(%d+ messages.\*")
+function ext.appfinder.window\_from\_window\_title(title) -- Returns the Hydra window object for a window with the supplied title (e.g. "Activity Monitor (All Processes)")
 ~~~
 
 ### Additional documentation
