@@ -23,6 +23,6 @@ function ext.appfinder.window_from_window_title(title) -- Returns the Hydra wind
 
 For more information about Lua patterns, see:
 
-http://lua-users.org/wiki/PatternsTutorial
-http://www.lua.org/manual/5.2/manual.html#6.4.1
+- http://lua-users.org/wiki/PatternsTutorial
+- http://www.lua.org/manual/5.2/manual.html#6.4.1
 
