@@ -24,34 +24,34 @@ local function find_application_from_window(title, fn)
     end
 end
 
--- mjolnir.cmsj.appfinder.app_from_name(name) -> app or nil
--- Function
--- Finds an application by its name (e.g. "Safari")
+--- mjolnir.cmsj.appfinder.app_from_name(name) -> app or nil
+--- Function
+--- Finds an application by its name (e.g. "Safari")
 function appfinder.app_from_name(name)
     return fnutils.find(application.runningapplications(), function(app) return app:title() == name end)
 end
 
--- mjolnir.cmsj.appfinder.app_from_window_title(title) -> app or nil
--- Function
--- Finds an application by its window title (e.g. "Activity Monitor (All Processes)")
+--- mjolnir.cmsj.appfinder.app_from_window_title(title) -> app or nil
+--- Function
+--- Finds an application by its window title (e.g. "Activity Monitor (All Processes)")
 function appfinder.app_from_window_title(title)
     return find_application_from_window(title, function(win) return win:title() == title end)
 end
 
--- mjolnir.cmsj.appfinder.app_from_window_title_pattern(pattern) -> app or nil
--- Function
--- Finds an application by Lua pattern in its window title (e.g."Inbox %(%d+ messages.*)")
---  Notes:
---      For more about Lua patterns, see:
---       http://lua-users.org/wiki/PatternsTutorial
---       http://www.lua.org/manual/5.2/manual.html#6.4.1
+--- mjolnir.cmsj.appfinder.app_from_window_title_pattern(pattern) -> app or nil
+--- Function
+--- Finds an application by Lua pattern in its window title (e.g."Inbox %(%d+ messages.*)")
+---  Notes:
+---      For more about Lua patterns, see:
+---       http://lua-users.org/wiki/PatternsTutorial
+---       http://www.lua.org/manual/5.2/manual.html#6.4.1
 function appfinder.app_from_window_title_pattern(pattern)
     return find_application_from_window(pattern, function(win) return string.match(win:title(), pattern) end)
 end
 
--- mjolnir.cmsj.appfinder.window_from_window_title(title) -> win or nil
--- Function
--- Finds a window by its title (e.g. "Activity Monitor (All Processes)")
+--- mjolnir.cmsj.appfinder.window_from_window_title(title) -> win or nil
+--- Function
+--- Finds a window by its title (e.g. "Activity Monitor (All Processes)")
 function appfinder.window_from_window_title(title)
     return find_window_from_function(function(win) return win:title() == title end)
 end
