@@ -1,23 +1,18 @@
 ### Install
 
 ~~~bash
-$ git clone https://github.com/cmsj/hydra-appfinder.git ~/.hydra/ext/appfinder
+$ luarocks install mjolnir.cmsj.appfinder
 ~~~
 
 ### Require
 
 ~~~lua
-require "ext.appfinder.init"
+local appfinder = require "mjolnir.cmsj.appfinder"
 ~~~
 
-### Core Functions
+### Documentation
 
-~~~lua
-function ext.appfinder.app_from_name(name)  -- Returns the Hydra application object for an application with the supplied name (e.g. "Safari")
-function ext.appfinder.app_from_window_title(title) -- Returns the Hydra application object for a window with the supplied title (e.g. "Activity Monitor (All Processes)")
-function ext.appfinder.app_from_window_title_pattern(pattern) -- Returns the Hydra application object for a window title matching the supplied Lua pattern (e.g. "Inbox %(%d+ messages.\*")
-function ext.appfinder.window_from_window_title(title) -- Returns the Hydra window object for a window with the supplied title (e.g. "Activity Monitor (All Processes)")
-~~~
+Documentation is included in Dash's "Mjolnir" docset.
 
 ### Additional documentation
 

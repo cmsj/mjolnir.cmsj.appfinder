@@ -12,7 +12,7 @@ version = "0.1-1"
 
 -- General metadata:
 
-local url = "github.com/cmsj/mjolnir-appfinder"
+local url = "github.com/cmsj/mjolnir.cmsj.appfinder"
 local desc = "Mjolnir module to simplify finding apps and windows."
 
 source = {url = "git://" .. url}

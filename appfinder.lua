@@ -1,12 +1,12 @@
--- appfinder.lua v2014.07.07
--- cmsj@tenshu.net
--- Utility functions to aid finding:
---   * Applications
---   * Windows
+--- === mjolnir.cmsj.appfinder ===
+--
+-- Simplified finding of applications/windows
+--
+-- Usage: local appfinder = require "mjolnir.cmsj.appfinder"
 
 local appfinder = {}
-local fnutils = require 'mjolnir.fnutils'
-local application = require 'mjolnir.application'
+local fnutils = require "mjolnir.fnutils"
+local application = require "mjolnir.application"
 
 -- Internal function to search all windows using a matching function
 local function find_window_from_function(fn)
@@ -23,29 +23,23 @@ local function find_application_from_window(title, fn)
     end
 end
 
--- Finds an application by its name
---  Parameters:
---      name: Application name (e.g. "Safari")
---  Returns:
---      application object or nil
+-- mjolnir.cmsj.appfinder.app_from_name(name) -> app or nil
+-- Function
+-- Finds an application by its name (e.g. "Safari")
 function appfinder.app_from_name(name)
     return fnutils.find(application.runningapplications(), function(app) return app:title() == name end)
 end
 
--- Finds an application by its window title
---  Parameters:
---      title: Window title (e.g. "Activity Monitor (All Processes)")
---  Returns:
---      application object or nil
+-- mjolnir.cmsj.appfinder.app_from_window_title(title) -> app or nil
+-- Function
+-- Finds an application by its window title (e.g. "Activity Monitor (All Processes)")
 function appfinder.app_from_window_title(title)
     return find_application_from_window(title, function(win) return win:title() == title end)
 end
 
--- Finds an application by pattern in its window title
---  Parameters:
---      pattern: Lua pattern (e.g. "Inbox %(%d+ messages.*")
---  Returns:
---      application object or nil
+-- mjolnir.cmsj.appfinder.app_from_window_title_pattern(pattern) -> app or nil
+-- Function
+-- Finds an application by Lua pattern in its window title (e.g."Inbox %(%d+ messages.*)")
 --  Notes:
 --      For more about Lua patterns, see:
 --       http://lua-users.org/wiki/PatternsTutorial
@@ -54,11 +48,9 @@ function appfinder.app_from_window_title_pattern(pattern)
     return find_application_from_window(pattern, function(win) return string.match(win:title(), pattern) end)
 end
 
--- Finds a window by its title
---  Parameters:
---    title: Window title (e.g. "Activity Monitor (All Processes)")
---  Returns:
---    window object or nil
+-- mjolnir.cmsj.appfinder.window_from_window_title(title) -> win or nil
+-- Function
+-- Finds a window by its title (e.g. "Activity Monitor (All Processes)")
 function appfinder.window_from_window_title(title)
     return find_window_from_function(function(win) return win:title() == title end)
 end
