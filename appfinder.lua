@@ -5,6 +5,8 @@
 --   * Windows
 
 local appfinder = {}
+local fnutils = require 'mjolnir.fnutils'
+local application = require 'mjolnir.application'
 
 -- Internal function to search all windows using a matching function
 local function find_window_from_function(fn)
