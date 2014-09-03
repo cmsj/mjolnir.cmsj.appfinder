@@ -1,7 +1,7 @@
 ### Install
 
 ~~~bash
-$ luarocks install mjolnir.cmsj.appfinder
+$ luarocks install --server=http://rocks.moonscript.org/manifests/cmsj mjolnir.cmsj.appfinder
 ~~~
 
 ### Require
