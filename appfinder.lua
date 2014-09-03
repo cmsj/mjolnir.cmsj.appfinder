@@ -4,7 +4,9 @@
 --   * Applications
 --   * Windows
 
-ext.appfinder = {}
+local appfinder = {}
+local fnutils = require 'mjolnir.fnutils'
+local application = require 'mjolnir.application'
 
 -- Internal function to search all windows using a matching function
 local function find_window_from_function(fn)
@@ -26,7 +28,7 @@ end
 --      name: Application name (e.g. "Safari")
 --  Returns:
 --      application object or nil
-function ext.appfinder.app_from_name(name)
+function appfinder.app_from_name(name)
     return fnutils.find(application.runningapplications(), function(app) return app:title() == name end)
 end
 
@@ -35,7 +37,7 @@ end
 --      title: Window title (e.g. "Activity Monitor (All Processes)")
 --  Returns:
 --      application object or nil
-function ext.appfinder.app_from_window_title(title)
+function appfinder.app_from_window_title(title)
     return find_application_from_window(title, function(win) return win:title() == title end)
 end
 
@@ -48,7 +50,7 @@ end
 --      For more about Lua patterns, see:
 --       http://lua-users.org/wiki/PatternsTutorial
 --       http://www.lua.org/manual/5.2/manual.html#6.4.1
-function ext.appfinder.app_from_window_title_pattern(pattern)
+function appfinder.app_from_window_title_pattern(pattern)
     return find_application_from_window(pattern, function(win) return string.match(win:title(), pattern) end)
 end
 
@@ -57,6 +59,8 @@ end
 --    title: Window title (e.g. "Activity Monitor (All Processes)")
 --  Returns:
 --    window object or nil
-function ext.appfinder.window_from_window_title(title)
+function appfinder.window_from_window_title(title)
     return find_window_from_function(function(win) return win:title() == title end)
 end
+
+return appfinder
