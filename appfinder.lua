@@ -1,8 +1,8 @@
 --- === mjolnir.cmsj.appfinder ===
---
+---
 --- Simplified finding of applications/windows
---
--- Usage: local appfinder = require "mjolnir.cmsj.appfinder"
+---
+--- Usage: local appfinder = require "mjolnir.cmsj.appfinder"
 
 local appfinder = {}
 local fnutils = require "mjolnir.fnutils"
